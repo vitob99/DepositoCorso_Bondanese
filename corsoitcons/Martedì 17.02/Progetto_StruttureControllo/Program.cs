@@ -5,6 +5,7 @@ class Program{
     const float PREZZO_FISSO = 100;
     const float PERCENTUALE_SCONTO = 10;
     const int PASSWORD_NUMERICA_CORRETTA = 901023;
+    const double PI_GRECO = 3.14159;
 
     public static void Main(string[] args){
         int a = 15;
@@ -90,6 +91,8 @@ class Program{
             Console.WriteLine("Il primo numero inserito e il secondo sono diversi!");
         }
 
+
+
         //ESERCIZI IF-ELSE
         int d = 10;
         int e = 15;
@@ -100,6 +103,10 @@ class Program{
             // viene eseguito solo se la condizione nell’if è falsa
             Console.WriteLine($"{d} è minore di {e}");
         }
+
+
+
+
 
         /*
         1.Scrivi un programma che richiede all'utente di inserire un numero intero e determini se è pari o dispari.
@@ -184,7 +191,7 @@ class Program{
 
 
 
-    
+
         /*
         1.Scrivi un programma che chieda all'utente un voto da 1 a 10 e stampi una valutazione:
             a.da 1 a 4: Insufficiente
@@ -261,6 +268,88 @@ class Program{
         else if(scala_conversione_scelta == "Rankine"){
             double temperatura_rankine = (temperatura_celsius * 1.8) + 491.67;
             Console.WriteLine($"{temperatura_celsius} gradi Celsius sono {temperatura_rankine} gradi Kelvin");            
+        }
+
+        //SWITCH
+        string giorno = "lunedì";
+        switch (giorno){
+            case "lunedì":
+                Console.WriteLine("Inizio settimana");
+                break;
+            case "venerdì":
+                Console.WriteLine("Quasi weekend");
+                break;
+            default:
+                Console.WriteLine("Altro giorno");
+                break;
+        }
+
+
+        /*
+        1. Scrivi un programma che chieda all’utente di inserire un numero da 1 a 7 
+        e restituisca il giorno corrispondente della settimana.
+        */
+        Console.Write("Inserisci un numero da 1 a 7: ");
+        int numero_giorno = int.Parse(Console.ReadLine());
+        switch (numero_giorno){
+            case 1:
+                Console.WriteLine("Lunedi'");
+                break;
+            case 2:
+                Console.WriteLine("Martedi'");
+                break;
+            case 3:
+                Console.WriteLine("Mercoledi'");
+                break;
+            case 4:
+                Console.WriteLine("Giovedi'");
+                break;
+            case 5: 
+                Console.WriteLine("Venerdi'");
+                break;
+            case 6:
+                Console.WriteLine("Sabato");
+                break;
+            case 7:
+                Console.WriteLine("Domenica");
+                break;
+            default:
+                Console.WriteLine("Giorno indefinito!");
+                break;
+        }
+
+        /*
+        2. Scrivi un programma che chieda all'utente quale figura geometrica vuole calcolare 
+        tra quadrato, cerchio e triangolo, quindi chiede le misure necessarie e calcola l'area corrispondente.
+        */
+        Console.Write("Di quale forma vuoi calcolare l'area? (Quadrato, Cerchio, Triangolo): ");
+        string forma = Console.ReadLine();
+        switch(forma){
+            case "Quadrato":
+                Console.Write("Dimensione lato in cm: ");
+                double lato_quadrato = double.Parse(Console.ReadLine());
+                double area_quadrato = lato_quadrato * lato_quadrato;
+                Console.WriteLine($"L'area del quadrato e' {area_quadrato}cm quadrati");
+                break;
+            case "Cerchio":
+                Console.Write("Dimensione raggio in cm: ");
+                double raggio_cerchio = double.Parse(Console.ReadLine());
+
+                double area_cerchio = PI_GRECO * (raggio_cerchio * raggio_cerchio);
+                Console.WriteLine($"L'area del cerchio e' {area_cerchio}cm quadrati");
+                break;
+            case "Triangolo":
+                Console.Write("Dimensione base in cm: ");
+                double base_triangolo = double.Parse(Console.ReadLine());
+                Console.Write("Dimensione altezza in cm: ");
+                double altezza_triangolo = double.Parse(Console.ReadLine());
+
+                double area_triangolo = (base_triangolo * altezza_triangolo) / 2;
+                Console.WriteLine($"L'area del triangolo e' {area_triangolo}cm quadrati");
+                break;
+            default:
+                Console.WriteLine("Forma non valida");
+                break;
         }
     }
 }
