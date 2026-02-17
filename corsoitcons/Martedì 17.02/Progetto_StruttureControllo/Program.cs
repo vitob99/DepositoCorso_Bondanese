@@ -4,6 +4,7 @@ class Program{
     const int MAGGIORE_ETA = 18;
     const float PREZZO_FISSO = 100;
     const float PERCENTUALE_SCONTO = 10;
+    const int PASSWORD_NUMERICA_CORRETTA = 901023;
 
     public static void Main(string[] args){
         int a = 15;
@@ -89,6 +90,177 @@ class Program{
             Console.WriteLine("Il primo numero inserito e il secondo sono diversi!");
         }
 
+        //ESERCIZI IF-ELSE
+        int d = 10;
+        int e = 15;
+        if(a > b) { // (a>b) da come risultato False
+            Console.WriteLine($"{d} è maggiore di {e}");
+        }
+        else{
+            // viene eseguito solo se la condizione nell’if è falsa
+            Console.WriteLine($"{d} è minore di {e}");
+        }
 
+        /*
+        1.Scrivi un programma che richiede all'utente di inserire un numero intero e determini se è pari o dispari.
+                a.Richieste tecniche:
+                    i.Conversione esplicita del tipo.
+                    ii.Uso degli operatori aritmetici e modulo %.
+        */
+        
+        Console.Write("Scrivi un numero: ");
+        int n = int.Parse(Console.ReadLine());
+        if(n % 2 == 0){
+            Console.WriteLine($"Il numero {n} e' PARI");
+        }
+        else{
+            Console.WriteLine($"Il numero {n} e' DISPARI");
+        }
+
+        /*
+        2.Crea un semplice programma che richieda all’utente di inserire una password numerica. 
+        Se la password inserita corrisponde a una costante predefinita, 
+        stampa "Accesso consentito" , altrimenti stampa "Accesso negato"
+                a.Richieste tecniche:
+                    i.Uso di costanti.
+                    ii.Casting e conversione esplicita.
+        */
+
+        Console.Write("Inserisci la password: ");
+        int password_numerica = int.Parse(Console.ReadLine());
+        if(password_numerica == PASSWORD_NUMERICA_CORRETTA){
+            Console.WriteLine("Accesso consentito");
+        }
+        else{
+             Console.WriteLine("Accesso negato");
+        }
+
+        /*
+        3. Realizza una calcolatrice semplificata che chieda due numeri double e un operatore (+ oppure -). 
+        Il programma dovrà effettuare l’operazione richiesta e stampare il risultato. 
+        Se l’utente inserisce un operatore diverso da + o -, stampare "Operatore non valido!"
+                a.Richieste tecniche:
+                    i.Input multipli da tastiera.
+                    ii.Casting implicito e esplicito.
+                    iii.Uso combinato di operatori e stringhe.
+        */
+        Console.Write("Inserisci il primo numero: ");
+        double operando1 = double.Parse(Console.ReadLine());
+        Console.Write("Inserisci il secondo numero: ");
+        double operando2 = double.Parse(Console.ReadLine());
+        Console.Write("Inserisci l'operatore (+ o -)");
+        char operatore = char.Parse(Console.ReadLine());
+
+        if(operatore == '+'){
+            Console.WriteLine($"La somma di {operando1} e {operando2} e' {operando1 + operando2}");
+        }
+        if(operatore == '-'){
+            Console.WriteLine($"La differenza tra {operando1} e {operando2} e' {operando1 - operando2}");
+        }
+        if(operatore != '+' && operatore != '-'){
+            Console.WriteLine("Operatore non valido!");
+        }
+        
+        //ESERCIZI ELSEIF
+        int voto = 28;
+        if(voto >= 30){
+            Console.WriteLine("Eccellente");
+        }
+        else if (voto >= 18){
+            Console.WriteLine("Sufficiente");
+        }
+
+        int eta = 15;
+        if(eta >= 18){
+            Console.WriteLine("Maggiorenne");
+        }
+        else if (eta >= 13){
+            Console.WriteLine("Adolescente");
+        }
+        else{
+            Console.WriteLine("Bambino");
+        }
+    
+
+
+
+    
+        /*
+        1.Scrivi un programma che chieda all'utente un voto da 1 a 10 e stampi una valutazione:
+            a.da 1 a 4: Insufficiente
+            b.da 5 a 6: Sufficiente
+            c.da 7 a 8: Buono
+            d.da 9 a 10: Ottimo
+        */
+        Console.Write("Inserisci un voto da 1 a 10: ");
+        int voto_utente = int.Parse(Console.ReadLine());
+        if(voto_utente >= 1 && voto_utente <= 4){
+            Console.WriteLine("Insufficiente!");    
+        }
+        else if(voto_utente == 5 || voto_utente == 6){
+            Console.WriteLine("Sufficiente");
+        }
+
+        else if(voto_utente == 7 || voto_utente == 8){
+            Console.WriteLine("Buono");
+        }  
+
+        else if(voto_utente == 9 || voto_utente == 10){
+            Console.WriteLine("Ottimo");
+        }
+
+        /*
+        2.Scrivi un programma che calcoli il BMI (Body Mass Index).
+            a.Formula BMI: peso / (altezza*altezza).
+            b.Chiedi altezza (metri) e peso (kg) all'utente, poi stampa la categoria:
+                i.BMI < 18.5: Sottopeso
+                ii.18.5 ≤ BMI < 25: Normopeso
+                iii.25 ≤ BMI < 30: Sovrappeso
+                iv.BMI ≥ 30: Obesità
+        */   
+
+        Console.Write("Inserisci la tua altezza in metri: ");
+        double altezza_utente = double.Parse(Console.ReadLine());
+        Console.Write("Inserisci il tuo peso in kg: ");
+        double peso_utente = double.Parse(Console.ReadLine());
+
+        double bmi_utente = peso_utente / (altezza_utente * altezza_utente);
+        if(bmi_utente < 18.5){
+            Console.WriteLine("Sottopeso");
+        }
+        else if(bmi_utente >= 18.5 && bmi_utente < 25){
+            Console.WriteLine("Sottopeso");
+        }
+        else if(bmi_utente >= 25 && bmi_utente < 30){
+            Console.WriteLine("Sovrappeso");
+        }
+        else if(bmi_utente >= 30){
+            Console.WriteLine("Obesita'");
+        }
+
+        /*
+        3. Scrivi un programma che converta la temperatura inserita dall’utente da Celsius 
+        verso un’altra scala scelta sempre dall’utente tra Fahrenheit, Kelvin e Rankine. 
+        Stampa il risultato formattato.
+        */
+
+        Console.Write("Inserisci una temperatura in Celsius: ");
+        double temperatura_celsius = double.Parse(Console.ReadLine());
+
+        Console.Write("Scegli in quale scala convertire la temperatura (Fahrenheit, Kelvin, Rankine): ");
+        string scala_conversione_scelta = Console.ReadLine();
+
+        if(scala_conversione_scelta == "Fahrenheit"){
+            double temperatura_fahrenheit = (temperatura_celsius * 0.8) + 32;
+            Console.WriteLine($"{temperatura_celsius} gradi Celsius sono {temperatura_celsius} gradi Fahrenheit");
+        }
+        else if(scala_conversione_scelta == "Kelvin"){
+            double temperatura_kelvin = temperatura_celsius + 273.15;
+            Console.WriteLine($"{temperatura_celsius} gradi Celsius sono {temperatura_kelvin} gradi Kelvin");
+        }
+        else if(scala_conversione_scelta == "Rankine"){
+            double temperatura_rankine = (temperatura_celsius * 1.8) + 491.67;
+            Console.WriteLine($"{temperatura_celsius} gradi Celsius sono {temperatura_rankine} gradi Kelvin");            
+        }
     }
 }
